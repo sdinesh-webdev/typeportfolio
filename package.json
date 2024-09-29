@@ -1,0 +1,38 @@
+{
+  "name": "portfolio-typescript",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node server",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "vite build --ssrManifest --outDir dist/client",
+    "build:server": "vite build --ssr src/entry-server.tsx --outDir dist/server",
+    "preview": "cross-env NODE_ENV=production node server"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.20",
+    "compression": "^1.7.4",
+    "express": "^4.19.2",
+    "gsap": "^3.12.5",
+    "html-react-parser": "^5.1.16",
+    "lenis": "^1.1.13",
+    "postcss": "^8.4.47",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
+    "sirv": "^2.0.4"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.12.7",
+    "@types/react": "^18.2.79",
+    "@types/react-dom": "^18.2.25",
+    "@types/react-helmet": "^6.1.11",
+    "@vitejs/plugin-react": "^4.2.1",
+    "cross-env": "^7.0.3",
+    "tailwindcss": "^3.4.13",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.10"
+  }
+}
