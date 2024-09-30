@@ -60,7 +60,7 @@ const Certificates: React.FC = () => {
 
   return (
     <div className="flex flex-col w-full">
-      <h1 className="text-start mt-4 pb-6 sm:pb-10 pt-4 mb-4 sm:mb-6 text-4xl  sm:text-6xl mt-12 lg:text-8xl font-medium">
+      <h1 className="text-start mt-24 pb-6 sm:pb-10 pt-4 mb-4 sm:mb-6 text-4xl  sm:text-6xl mt-12 lg:text-8xl font-medium">
         Professional Certificates
       </h1>
       {workItems.map((item, index) => (
