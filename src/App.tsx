@@ -1,9 +1,12 @@
-import { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Lenis from 'lenis';
 import Layout from './Layout';
+import { Loading } from './Loading'; 
 import './App.css';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.5,
@@ -17,14 +20,22 @@ function App() {
 
     requestAnimationFrame(raf);
 
+    // Simulate loading time
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000); // Adjust the timeout as needed
+
     return () => {
       lenis.destroy();
     };
   }, []);
 
+  if (isLoading) {
+    return <Loading />;
+  }
+
   return (
-    <div className="w-full max-sm:h-[2400px]" >
-   
+    <div className="w-full max-sm:h-[2700px]">
       <Layout />
     </div>
   );
