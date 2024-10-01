@@ -32,7 +32,7 @@ const Contact: React.FC = () => {
 
   return (
     <section className="contact-section flex h-28  flex-col w-full">
-      <h1 className="contact-heading text-start mt-24 text-8xl pb-6 font-medium mb-4 md:mt-20 md:mb-6">Contact</h1>
+      <h1 className="contact-heading text-start mt-24 pb-6 mb-4 text-6xl md:mt-20 md:mb-6 md:text-8xl font-medium">Contact</h1>
       {workItems.map((item, index) => (
         <div
           className={`contact-item border-b border-black mb-0 ${index === 0 ? 'border-t' : ''}`}

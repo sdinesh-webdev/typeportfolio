@@ -8,7 +8,7 @@ import './App.css';
 
 const Layout: React.FC = () => {
   return (
-    <div id="root" className="w-full">
+    <>
       <header className="header-section w-full">
         <Intro />
       </header>
@@ -20,7 +20,7 @@ const Layout: React.FC = () => {
       <footer className="footer-section w-full">
         <Contact />
       </footer>
-    </div>
+    </>
   );
 };
 

@@ -56,12 +56,12 @@ const Projects: React.FC = () => {
 
   return (
     <section className="projects-section flex flex-col  w-full">
-      <h1 className="projects-heading text-start mt-24 mb-6 text-4xl md:text-8xl font-medium">Projects</h1>
+      <h1 className="projects-heading text-start text-6xl mb-4 mt-24 md:mt-20 md:mb-6  md:text-8xl font-medium">Projects</h1>
       <p className='projects-description text-start font-light pb-14 pt-2'>Projects are in development. Their listing will be available soon.</p>
       <div className="projects-grid grid grid-cols-1 md:grid-cols-2 gap-x-4">
         {workItems.map((item, index) => (
           <div
-            className={`project-item border-b border-black mb-0 ${index === 0 || index === 1 ? 'border-t' : ''}`}
+            className={`project-item border-b border-black mb-0 ${index === 0 ? 'border-t' : ''} ${index === 1 ? 'md:border-t' : ''}`}
             key={index}
           >
             <Work
@@ -73,7 +73,7 @@ const Projects: React.FC = () => {
               imageClass="ml-4"
               imageStyle={item.imageStyle}
               overlayClass="absolute top-0 left-0 w-full h-full bg-black -z-10 transform scale-y-0 origin-top"
-              alt={item.alt} // Ensure this is passed correctly
+              alt={item.alt}
             />
           </div>
         ))}

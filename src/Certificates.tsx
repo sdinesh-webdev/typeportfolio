@@ -32,35 +32,35 @@ const Certificates: React.FC = () => {
       link: "https://www.coursera.org/account/accomplishments/specialization/HLJUAPS49XLG",
       name: "Meta Front-End Developer Professional",
       image: meta,
-      imageStyle: "w-[107px] h-[80px]",
+      imageStyle: " ",
       alt: "Meta Front-End Developer Certificate"
     },
     {
       link: "https://www.coursera.org/account/accomplishments/specialization/YAPAFNUL4QA2",
       name: "IBM Back-end JavaScript Developer Professional",
       image: ibmImage,
-      imageStyle: "w-[107px] h-[80px]",
+      imageStyle: " ",
       alt: "IBM Back-end JavaScript Developer Certificate"
     },
     {
       link: "https://www.coursera.org/account/accomplishments/specialization/ZPTNMXAC7FQB",
       name: "Search Engine Optimization (SEO) Specializations",
       image: certificate_3,
-      imageStyle: "w-[107px] h-[80px]",
+      imageStyle: " ",
       alt: "SEO Certificate"
     },
     {
       link: "https://example.com",
       name: "UI Fullstack With React js By -- Sudhakar Sharma Sir",
       image: certificate_4,
-      imageStyle: "w-[107px] h-[80px]",
+      imageStyle: " ",
       alt: "Example Project Certificate"
     },
   ];
 
   return (
     <div className="flex flex-col w-full">
-      <h1 className="text-start mt-24 pb-6 sm:pb-10 pt-4 mb-4 sm:mb-6 text-4xl  sm:text-6xl mt-12 lg:text-8xl font-medium">
+      <h1 className="text-start mt-24 pb-6 mb-4 text-6xl md:mt-20 md:mb-6 md:text-8xl font-medium">
         Professional Certificates
       </h1>
       {workItems.map((item, index) => (
@@ -73,9 +73,9 @@ const Certificates: React.FC = () => {
             name={item.name}
             image={item.image}
             nameClass="font-medium text-2xl sm:text-3xl lg:text-5xl ml-2 sm:ml-4"
-            containerClass="w-full h-24 sm:h-32 lg:h-40"
+            containerClass="w-full h-32"
             imageClass="ml-2 sm:ml-4"
-            imageStyle={`w-[80px] h-[60px] sm:w-[90px] sm:h-[70px] lg:${item.imageStyle}`}
+            imageStyle={`w-[90px] h-[60px] sm:w-[90px] sm:h-[60px] lg:${item.imageStyle}`}
             overlayClass="absolute top-0 left-0 w-full h-full bg-black -z-10 transform scale-y-0 origin-top"
             alt={item.alt}
           />

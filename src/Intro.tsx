@@ -102,7 +102,7 @@ export const Intro: React.FC = () => {
 
       <div className="intro text-left mt-4 sm:mt-0" ref={introRef}>
         <strong className="pb-8">My name is S Dinesh Kumar, aka Supah, short for Supahfunk: Code Meets Creativity. <br /></strong>
-        <p className="leading-relaxed">
+        <p className="leading-relaxed max-sm:text-3xl max-sm:leading-loose">
           I am an Indian multidisciplinary creative full-stack developer with over 1 years of experience through personal projects and continuous learning.<br />
           I have a creative mind inclined to learn something new every day to develop solutions and experiences with a strong visual impact.<br />
           I love to work with an incredible team to build the future together.

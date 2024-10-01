@@ -23,10 +23,10 @@ function App() {
   }, []);
 
   return (
-    <>
+    <div className="w-full max-sm:h-[2400px]" >
    
       <Layout />
-    </>
+    </div>
   );
 }
 
