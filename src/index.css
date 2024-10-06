@@ -26,21 +26,22 @@
 
 html {
   font-size: 10px;
-
 }
 
 body {
   background: #fff;
   color: #000;
-  width: 100dvw;
   margin: 0;
   padding: 0;
   font-family: Matter, Helvetica, Arial, sans-serif;
   font-size: 1.6rem;
   font-weight: 300;
+  /* Remove width: 100dvw; */
 }
 
 .loading-container {
+  /* Ensure this is hidden after loading */
+  display: none; /* or remove this element from the DOM */
   position: fixed;
   top: 0;
   left: 0;
@@ -55,14 +56,6 @@ body {
   /* Ensure it covers the entire screen */
 }
 
-
-.loading-container {
-  display: flex;
-  justify-content: bottom;
-  align-items: center;
-  height: 100vh;
-}
-
 .number {
   font-size: 6rem;
   font-weight: bold;
@@ -70,17 +63,19 @@ body {
 
 #root {
   padding: 4.4rem 5rem 6rem;
-  max-width: 100vh;
+  /* max-width: 100vh; */ /* Consider changing this */
   height: 100vh;
   align-items: flex-start;
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* Default for larger screens */
+ 
+ 
+}
 
-
-  @media (max-width: 440px) {
-    padding: 4.4rem 2.5rem 6rem;
-    overflow-y: auto;
+@media (max-width: 768px) {
+  #root {
+  overflow-x: hidden; 
+  overflow-y: auto;
   }
 }
 

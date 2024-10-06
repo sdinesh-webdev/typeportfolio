@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Lenis from 'lenis';
 import Layout from './Layout';
-import { Loading } from './Loading'; 
+import { Loading } from './Loading';
+import Popup from './Popup'; // Import the Popup component
 import './App.css';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [showPopup, setShowPopup] = useState(false); // State to control popup visibility
 
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.5,
+      duration: 2,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     });
 
@@ -23,6 +25,7 @@ function App() {
     // Simulate loading time
     setTimeout(() => {
       setIsLoading(false);
+      setShowPopup(true); // Show popup after loading
     }, 1000); // Adjust the timeout as needed
 
     return () => {
@@ -37,6 +40,7 @@ function App() {
   return (
     <div className="w-full max-sm:h-[2700px]">
       <Layout />
+      {showPopup && <Popup onClose={() => setShowPopup(false)} />} {/* Render popup if showPopup is true */}
     </div>
   );
 }
