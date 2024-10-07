@@ -72,10 +72,10 @@ const Certificates: React.FC = () => {
             link={item.link}
             name={item.name}
             image={item.image}
-            nameClass="font-medium text-2xl sm:text-3xl lg:text-5xl ml-2 sm:ml-4"
-            containerClass="w-full h-32"
+            nameClass="font-medium text-2xl sm:text-3xl lg:text-5xl ml-2 sm:ml-4 max-sm: text-start pl-2"
+            containerClass="w-full h-40 max-sm:h-32 "
             imageClass="ml-2 sm:ml-4"
-            imageStyle={`w-[90px] h-[60px] sm:w-[90px] sm:h-[60px] lg:${item.imageStyle}`}
+            imageStyle={`w-[90px] h-[60px] sm:w-[105px] sm:h-[75px] lg:${item.imageStyle}`}
             overlayClass="absolute top-0 left-0 w-full h-full bg-black -z-10 transform scale-y-0 origin-top"
             alt={item.alt}
           />
