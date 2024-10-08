@@ -181,7 +181,17 @@ const Experience = () => {
     experience.map((exp, index) => /* @__PURE__ */ jsx(ExperienceItem, { ...exp }, index))
   ] });
 };
-const Work = ({ link, name, image, nameClass, containerClass, imageClass, imageStyle, overlayClass }) => {
+const Work = ({
+  link,
+  name,
+  image,
+  nameClass,
+  containerClass,
+  imageClass,
+  imageStyle,
+  overlayClass,
+  alt
+}) => {
   const $root = useRef(null);
   const $overlay = useRef(null);
   const $link = useRef(null);
@@ -194,7 +204,6 @@ const Work = ({ link, name, image, nameClass, containerClass, imageClass, imageS
       gsap$1.to($link.current, {
         x: "2.5rem",
         color: "#fff",
-        // Change text color to white
         duration: 0.5,
         ease: "power3.out"
       });
@@ -202,7 +211,6 @@ const Work = ({ link, name, image, nameClass, containerClass, imageClass, imageS
     if ($image.current) {
       gsap$1.to($image.current, {
         filter: "invert(1)",
-        // Invert the image color
         duration: 0.5
       });
     }
@@ -231,7 +239,6 @@ const Work = ({ link, name, image, nameClass, containerClass, imageClass, imageS
       gsap$1.to($link.current, {
         x: 0,
         color: "#000",
-        // Change text color back to black
         duration: 0.3,
         ease: "power3.out"
       });
@@ -239,7 +246,6 @@ const Work = ({ link, name, image, nameClass, containerClass, imageClass, imageS
     if ($image.current) {
       gsap$1.to($image.current, {
         filter: "invert(0)",
-        // Revert the image color
         duration: 0.3,
         ease: "power3.out"
       });
@@ -264,7 +270,16 @@ const Work = ({ link, name, image, nameClass, containerClass, imageClass, imageS
       rel: "noopener noreferrer",
       className: `relative flex items-center ${containerClass}`,
       children: [
-        image && /* @__PURE__ */ jsx("img", { ref: $image, src: image, alt: name, className: `${imageClass} ${imageStyle}` }),
+        image && /* @__PURE__ */ jsx(
+          "img",
+          {
+            ref: $image,
+            src: image,
+            alt,
+            className: imageClass,
+            style: imageStyle
+          }
+        ),
         /* @__PURE__ */ jsx(
           "span",
           {
@@ -288,28 +303,28 @@ const Certificates = () => {
       link: "https://www.coursera.org/account/accomplishments/specialization/HLJUAPS49XLG",
       name: "Meta Front-End Developer Professional",
       image: meta,
-      imageStyle: " ",
+      imageStyle: "w-[90px] h-[60px] sm:w-[105px] sm:h-[75px]",
       alt: "Meta Front-End Developer Certificate"
     },
     {
       link: "https://www.coursera.org/account/accomplishments/specialization/YAPAFNUL4QA2",
       name: "IBM Back-end JavaScript Developer Professional",
       image: ibmImage,
-      imageStyle: " ",
+      imageStyle: "w-[90px] h-[60px] sm:w-[105px] sm:h-[75px]",
       alt: "IBM Back-end JavaScript Developer Certificate"
     },
     {
       link: "https://www.coursera.org/account/accomplishments/specialization/ZPTNMXAC7FQB",
       name: "Search Engine Optimization (SEO) Specializations",
       image: certificate_3,
-      imageStyle: " ",
+      imageStyle: "w-[90px] h-[60px] sm:w-[105px] sm:h-[75px]",
       alt: "SEO Certificate"
     },
     {
       link: "https://example.com",
       name: "UI Fullstack With React js By -- Sudhakar Sharma Sir",
       image: certificate_4,
-      imageStyle: " ",
+      imageStyle: "w-[90px] h-[60px] sm:w-[105px] sm:h-[75px]",
       alt: "Example Project Certificate"
     }
   ];
@@ -322,19 +337,16 @@ const Certificates = () => {
         children: /* @__PURE__ */ jsx(
           Work,
           {
-            link: item.link,
-            name: item.name,
-            image: item.image,
-            nameClass: "font-medium text-2xl sm:text-3xl lg:text-5xl ml-2 sm:ml-4 max-sm: text-start pl-2",
-            containerClass: "w-full h-40 max-sm:h-32 ",
-            imageClass: "ml-2 sm:ml-4",
-            imageStyle: `w-[90px] h-[60px] sm:w-[105px] sm:h-[75px] lg:${item.imageStyle}`,
-            overlayClass: "absolute top-0 left-0 w-full h-full bg-black -z-10 transform scale-y-0 origin-top",
-            alt: item.alt
+            ...item,
+            nameClass: "font-medium text-2xl sm:text-3xl lg:text-5xl ml-2 sm:ml-4 max-sm:text-start pl-2",
+            containerClass: "w-full h-40 max-sm:h-32 flex items-center",
+            imageClass: `ml-2 sm:ml-4 ${item.imageStyle}`,
+            imageStyle: {},
+            overlayClass: "absolute top-0 left-0 w-full h-full bg-black -z-10 transform scale-y-0 origin-top"
           }
         )
       },
-      index
+      item.name
     ))
   ] });
 };
@@ -349,35 +361,40 @@ const Projects = () => {
       link: "https://www.coursera.org/account/accomplishments/specialization/HLJUAPS49XLG",
       name: "Coming soon . . .",
       image: proj_1,
-      imageStyle: "w-[90px] h-[60px]",
+      imageStyle: "w-32 h-24",
+      // Changed to Tailwind classes
       alt: "Meta Project"
     },
     {
       link: "https://www.coursera.org/account/accomplishments/specialization/YAPAFNUL4QA2",
       name: "Coming soon . . .",
       image: proj_2,
-      imageStyle: "w-[90px] h-[60px]",
+      imageStyle: "w-32 h-24",
+      // Changed to Tailwind classes
       alt: "IBM Project"
     },
     {
       link: "https://www.coursera.org/account/accomplishments/specialization/ZPTNMXAC7FQB",
       name: "Coming soon . . .",
       image: proj_3,
-      imageStyle: "w-[90px] h-[60px]",
+      imageStyle: "w-32 h-24",
+      // Changed to Tailwind classes
       alt: "SEO Project"
     },
     {
       link: "https://example.com",
       name: "Coming soon . . .",
       image: proj_4,
-      imageStyle: "w-[90px] h-[60px]",
+      imageStyle: "w-32 h-24",
+      // Changed to Tailwind classes
       alt: "Example Project"
     },
     {
       link: "https://www.coursera.org/account/accomplishments/specialization/HLJUAPS49XLG",
       name: "Coming soon . . .",
       image: proj_5,
-      imageStyle: "w-[90px] h-[60px]",
+      imageStyle: "w-32 h-24",
+      // Changed to Tailwind classes
       alt: "Meta Project"
     }
   ];
@@ -391,19 +408,16 @@ const Projects = () => {
         children: /* @__PURE__ */ jsx(
           Work,
           {
-            link: item.link,
-            name: item.name,
-            image: item.image,
+            ...item,
             nameClass: "font-medium text-2xl md:text-4xl ml-4",
-            containerClass: "w-full h-32",
-            imageClass: "ml-4",
-            imageStyle: item.imageStyle,
-            overlayClass: "absolute top-0 left-0 w-full h-full bg-black -z-10 transform scale-y-0 origin-top",
-            alt: item.alt
+            containerClass: "w-full h-32 flex items-center",
+            imageClass: `ml-4 ${item.imageStyle}`,
+            imageStyle: {},
+            overlayClass: "absolute top-0 left-0 w-full h-full bg-black -z-10 transform scale-y-0 origin-top"
           }
         )
       },
-      index
+      item.name
     )) })
   ] });
 };
@@ -411,19 +425,31 @@ const Contact = () => {
   const workItems = [
     {
       link: "mailto:sdineshk7899@gmail.com",
-      name: "Email: sdineshk7899@gmail.com"
+      name: "Email: sdineshk7899@gmail.com",
+      alt: "Email",
+      image: ""
+      // Add an empty string or a default image URL
     },
     {
       link: "https://www.linkedin.com/in/sdineshku",
-      name: "LinkedIn"
+      name: "LinkedIn",
+      alt: "LinkedIn Profile",
+      image: ""
+      // Add an empty string or a default image URL
     },
     {
       link: "https://github.com/sdineshku",
-      name: "GitHub"
+      name: "GitHub",
+      alt: "GitHub Profile",
+      image: ""
+      // Add an empty string or a default image URL
     },
     {
       link: "/path/to/resume.pdf",
-      name: "Download Resume"
+      name: "Download Resume",
+      alt: "Resume",
+      image: ""
+      // Add an empty string or a default image URL
     }
   ];
   return /* @__PURE__ */ jsxs("section", { className: "contact-section flex h-28  flex-col w-full", children: [
@@ -435,8 +461,7 @@ const Contact = () => {
         children: /* @__PURE__ */ jsx(
           Work,
           {
-            link: item.link,
-            name: item.name,
+            ...item,
             nameClass: "font-normal text-2xl",
             containerClass: "w-full h-24",
             imageClass: "ml-4",

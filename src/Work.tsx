@@ -11,34 +11,45 @@ interface WorkProps {
   imageClass?: string;
   imageStyle?: React.CSSProperties;
   overlayClass?: string;
+  alt: string; // Add alt prop for accessibility
 }
 
-const Work: React.FC<WorkProps> = ({ link, name, image, nameClass, containerClass, imageClass, imageStyle, overlayClass }) => {
-  const $root = useRef<HTMLAnchorElement | null>(null); // Add type to ref
-  const $overlay = useRef<HTMLSpanElement | null>(null); // Add type to ref
-  const $link = useRef<HTMLSpanElement | null>(null); // Add type to ref
-  const $image = useRef<HTMLImageElement | null>(null);
+const Work: React.FC<WorkProps> = ({ 
+  link, 
+  name, 
+  image, 
+  nameClass, 
+  containerClass, 
+  imageClass, 
+  imageStyle, 
+  overlayClass,
+  alt 
+}) => {
+  const $root = useRef<HTMLAnchorElement>(null);
+  const $overlay = useRef<HTMLSpanElement>(null);
+  const $link = useRef<HTMLSpanElement>(null);
+  const $image = useRef<HTMLImageElement>(null);
 
-  const handleMouseEnter = (e: React.MouseEvent) => {
+  const handleMouseEnter = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (!$root.current) return;
-    const bounds = ($root.current as unknown as HTMLDivElement).getBoundingClientRect();
+    const bounds = $root.current.getBoundingClientRect();
     const top = e.clientY < bounds.y + bounds.height / 2;
 
     if ($link.current) {
       gsap.to($link.current, {
         x: '2.5rem',
-        color: '#fff', // Change text color to white
+        color: '#fff',
         duration: 0.5,
         ease: 'power3.out'
       });
     }
     if ($image.current) {
       gsap.to($image.current, {
-        filter: 'invert(1)', // Invert the image color
+        filter: 'invert(1)',
         duration: 0.5,
       });
     }
-    if ($overlay.current) { // Add null check
+    if ($overlay.current) {
       gsap.fromTo(
         $overlay.current,
         {
@@ -54,31 +65,30 @@ const Work: React.FC<WorkProps> = ({ link, name, image, nameClass, containerClas
     }
   };
 
-  const handleMouseLeave = (e: React.MouseEvent) => {
-    if (!$root.current) return; // Add null check
+  const handleMouseLeave = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!$root.current) return;
     const bounds = $root.current.getBoundingClientRect();
     const top = e.clientY < bounds.y + bounds.height / 2;
 
-    // Ensure elements are defined before killing tweens
-    const elements = [$overlay.current, $link.current, $image.current].filter(el => el !== null); // Filter out null elements
+    const elements = [$overlay.current, $link.current, $image.current].filter((el): el is NonNullable<typeof el> => el !== null);
     gsap.killTweensOf(elements);
 
     if ($link.current) {
       gsap.to($link.current, {
         x: 0,
-        color: '#000', // Change text color back to black
+        color: '#000',
         duration: 0.3,
         ease: 'power3.out'
       });
     }
     if ($image.current) {
       gsap.to($image.current, {
-        filter: 'invert(0)', // Revert the image color
+        filter: 'invert(0)',
         duration: 0.3,
         ease: 'power3.out'
       });
     }
-    if ($overlay.current) { // Add null check
+    if ($overlay.current) {
       gsap.to($overlay.current, {
         scaleY: 0,
         transformOrigin: top ? '0 0' : '0 100%',
@@ -89,10 +99,23 @@ const Work: React.FC<WorkProps> = ({ link, name, image, nameClass, containerClas
   };
 
   return (
-    <a ref={$root} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} href={link} target="_blank" rel="noopener noreferrer"
-      className={`relative flex items-center ${containerClass}`}>
+    <a 
+      ref={$root} 
+      onMouseEnter={handleMouseEnter} 
+      onMouseLeave={handleMouseLeave} 
+      href={link} 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className={`relative flex items-center ${containerClass}`}
+    >
       {image && (
-        <img ref={$image} src={image} alt={name} className={`${imageClass} ${imageStyle}`} /> // Apply the image style correctly
+        <img 
+          ref={$image} 
+          src={image} 
+          alt={alt} 
+          className={imageClass} 
+          style={imageStyle} 
+        />
       )}
       <span
         className={nameClass} 

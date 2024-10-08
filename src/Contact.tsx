@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import Work from './Work'; // Assuming Work component is exported with its props type
 import './index.css';
 
 interface WorkItem {
   link: string;
   name: string;
-  image?: string; // Add image property
-  imageStyle?: string; // Add imageStyle property
-  // Remove alt property
+  image: string; // Change this to be required
+  imageStyle?: CSSProperties;
+  alt: string; // Make alt required as well
 }
 
 const Contact: React.FC = () => {
@@ -15,18 +15,26 @@ const Contact: React.FC = () => {
     {
       link: "mailto:sdineshk7899@gmail.com",
       name: "Email: sdineshk7899@gmail.com",
+      alt: "Email",
+      image: "", // Add an empty string or a default image URL
     },
     {
       link: "https://www.linkedin.com/in/sdineshku",
       name: "LinkedIn",
+      alt: "LinkedIn Profile",
+      image: "", // Add an empty string or a default image URL
     },
     {
       link: "https://github.com/sdineshku",
       name: "GitHub",
+      alt: "GitHub Profile",
+      image: "", // Add an empty string or a default image URL
     },
     {
       link: "/path/to/resume.pdf",
       name: "Download Resume",
+      alt: "Resume",
+      image: "", // Add an empty string or a default image URL
     },
   ];
 
@@ -39,11 +47,10 @@ const Contact: React.FC = () => {
           key={index}
         >
           <Work
-            link={item.link}
-            name={item.name}
+            {...item}
             nameClass="font-normal text-2xl"
             containerClass="w-full h-24"
-            imageClass="ml-4" // Pass imageClass prop
+            imageClass="ml-4"
             overlayClass="absolute top-0 left-0 w-full h-full bg-black -z-10 transform scale-y-0 origin-top"
           />
         </div>
