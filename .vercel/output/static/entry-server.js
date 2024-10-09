@@ -4,6 +4,7 @@ import { renderToPipeableStream } from "react-dom/server";
 import Lenis from "lenis";
 import gsap$1, { gsap } from "gsap";
 import parse from "html-react-parser";
+import { inject } from "@vercel/analytics";
 const Intro = () => {
   const svgRef = useRef(null);
   const introRef = useRef(null);
@@ -471,7 +472,7 @@ const Contact = () => {
       },
       index
     )),
-    /* @__PURE__ */ jsx("h2", { className: "thank-you-message py-20 text-start text-2xl", children: "👋 Thank you." })
+    /* @__PURE__ */ jsx("h2", { className: "thank-you-message py-20 text-start text-2xl font-bold", children: "👋 Thank you." })
   ] });
 };
 const Layout = () => {
@@ -540,6 +541,7 @@ function App() {
       setIsLoading(false);
       setShowPopup(true);
     }, 1e3);
+    inject();
     return () => {
       lenis.destroy();
     };

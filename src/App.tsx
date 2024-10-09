@@ -4,6 +4,8 @@ import Layout from './Layout';
 import { Loading } from './Loading';
 import Popup from './Popup'; // Import the Popup component
 import './App.css';
+import { inject } from '@vercel/analytics';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -28,6 +30,8 @@ function App() {
       setShowPopup(true); // Show popup after loading
     }, 1000); // Adjust the timeout as needed
 
+    inject(); // Inject Vercel Analytics
+
     return () => {
       lenis.destroy();
     };
@@ -40,6 +44,7 @@ function App() {
   return (
     <div className="w-full max-sm:h-[2700px]">
       <Layout />
+       <SpeedInsights />
       {showPopup && <Popup onClose={() => setShowPopup(false)} />} {/* Render popup if showPopup is true */}
     </div>
   );
