@@ -55,7 +55,7 @@ const Contact: React.FC = () => {
           />
         </div>
       ))}
-      <h2 className="thank-you-message py-20 text-start text-2xl">👋 Thank you.</h2>
+      <h2 className="thank-you-message py-20 text-start text-2xl font-bold">👋 Thank you.</h2>
     </section>
   );
 };
