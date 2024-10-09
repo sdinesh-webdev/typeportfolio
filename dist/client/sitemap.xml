@@ -5,31 +5,31 @@
         http://www.sitemaps.org/schemas/sitemap-image/1.1/sitemap-image.xsd">
 
     <url>
-        <loc>https://your-portfolio-url.com/</loc>
+        <loc>https://sdineshkumar.vercel.app/</loc>
         <lastmod>2023-10-01</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://your-portfolio-url.com/experience</loc>
+        <loc>https://sdineshkumar.vercel.app/</loc>
         <lastmod>2023-10-01</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://your-portfolio-url.com/certificates</loc>
+        <loc>https://sdineshkumar.vercel.app/</loc>
         <lastmod>2023-10-01</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://your-portfolio-url.com/projects</loc>
+        <loc>https://sdineshkumar.vercel.app/</loc>
         <lastmod>2023-10-01</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://your-portfolio-url.com/contact</loc>
+        <loc>https://sdineshkumar.vercel.app/</loc>
         <lastmod>2023-10-01</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
