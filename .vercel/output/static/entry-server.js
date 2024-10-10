@@ -5,6 +5,7 @@ import Lenis from "lenis";
 import gsap$1, { gsap } from "gsap";
 import parse from "html-react-parser";
 import { inject } from "@vercel/analytics";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 const Intro = () => {
   const svgRef = useRef(null);
   const introRef = useRef(null);
@@ -551,6 +552,7 @@ function App() {
   }
   return /* @__PURE__ */ jsxs("div", { className: "w-full max-sm:h-[2700px]", children: [
     /* @__PURE__ */ jsx(Layout, {}),
+    /* @__PURE__ */ jsx(SpeedInsights, {}),
     showPopup && /* @__PURE__ */ jsx(Popup, { onClose: () => setShowPopup(false) }),
     " "
   ] });
