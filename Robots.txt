@@ -1,0 +1,27 @@
+# Robots.txt file for S Dinesh Kumar Portfolio
+
+# Allow all search engines to crawl the site
+User-agent: *
+Disallow:
+
+# Disallow crawling of specific directories
+# Disallow: /private/
+# Disallow: /temp/
+# Disallow: /node_modules/
+# Disallow: /build/
+
+# Allow specific files in disallowed directories
+Allow: /public/sitemap.xml
+
+# Specify the location of the sitemap
+Sitemap: https://sdineshkumar.vercel.app/sitemap.xml
+
+# Additional directives for specific bots
+User-agent: Googlebot
+Disallow:
+
+User-agent: Bingbot
+Disallow:
+
+# Crawl-delay directive (optional, not supported by all search engines)
+Crawl-delay: 10
