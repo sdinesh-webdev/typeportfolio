@@ -22,7 +22,7 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
           onClick={onClose} 
           className="bg-slate-800 text-white font-medium px-8 py-4 rounded-full "
         >
-          Close
+          Continue
         </button>
       </div>
     </div>
