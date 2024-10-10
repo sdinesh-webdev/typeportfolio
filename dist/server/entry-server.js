@@ -520,7 +520,7 @@ const Popup = ({ onClose }) => {
       {
         onClick: onClose,
         className: "bg-slate-800 text-white font-medium px-8 py-4 rounded-full ",
-        children: "Close"
+        children: "Continue"
       }
     )
   ] }) });
