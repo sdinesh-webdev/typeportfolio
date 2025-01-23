@@ -1,4 +1,5 @@
 import React from 'react';
+import useGsapReveal from './useGsapReveal';
 import Work from './Work'; 
 import './index.css'; 
 import meta from './assets/meta.webp'; 
@@ -15,6 +16,7 @@ interface WorkItem {
 }
 
 const Certificates: React.FC = () => {
+  const certificatesRef = useGsapReveal(2.7); // Added delay after Experience section
   const workItems: WorkItem[] = [
     {
       link: "https://www.coursera.org/account/accomplishments/specialization/HLJUAPS49XLG",
@@ -47,7 +49,7 @@ const Certificates: React.FC = () => {
   ];
 
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full opacity-0" ref={certificatesRef}>
       <h1 className="text-start mt-24 pb-6 mb-4 text-6xl md:mt-20 md:mb-6 md:text-8xl font-medium">
         Professional Certificates
       </h1>

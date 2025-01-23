@@ -4,9 +4,17 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  overflow-y: auto;
 }
 
-/* Add this media query for mobile devices */
+/* media query for larger screens */
+@media (min-width: 1920px) {
+  #root {
+    min-height: 2150px;
+  }
+}
+
+/* media query for mobile devices */
 @media (max-width: 400px) {
   #root {
     height: 2400px;

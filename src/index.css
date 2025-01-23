@@ -112,3 +112,17 @@ body {
 
   }
 }
+
+
+/* Initial position */
+.arrow-icon {
+  transform: translate(0, -50%) scale(1); /* Added scale(1) for initial size */
+  transition: all 0.3s ease;
+}
+
+/* Hover position */
+.contact-item:hover .arrow-icon {
+  transform: translate(12px, -65%) scale(1.20); /* Added scale(1.15) for 15% size increase */
+transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: invert(1);
+} 

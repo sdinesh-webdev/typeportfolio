@@ -35,6 +35,7 @@ export const Intro: React.FC = () => {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 874.13 130"
           className="w-full h-auto responsive-svg"
+          style={{ opacity: 0 }}
         >
           <title>S DINESH KUMAR</title>
           <g id="animate">
@@ -100,7 +101,7 @@ export const Intro: React.FC = () => {
         </svg>
       </div>
 
-      <div className="intro text-left mt-4 sm:mt-0" ref={introRef}>
+      <div className="intro text-left mt-4 sm:mt-0" ref={introRef} style={{ opacity: 0 }}>
         <strong className="pb-8">My name is S Dinesh Kumar, aka Supah, short for Supahfunk: Code Meets Creativity. <br /></strong>
         <p className="leading-relaxed max-sm:text-3xl max-sm:leading-loose">
           I am an Indian multidisciplinary creative full-stack developer with over 1 years of experience through personal projects and continuous learning.<br />

@@ -2,16 +2,17 @@ import { useState, useEffect } from 'react';
 import Lenis from 'lenis';
 import Layout from './Layout';
 import { Loading } from './Loading';
-import Popup from './Popup'; // Import the Popup component
+import Popup from './Popup';
 import './App.css';
 import { inject } from '@vercel/analytics';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [showPopup, setShowPopup] = useState(false); // State to control popup visibility
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
+    console.log('useEffect triggered');
     const lenis = new Lenis({
       duration: 2,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -24,15 +25,16 @@ function App() {
 
     requestAnimationFrame(raf);
 
-    // Simulate loading time
     setTimeout(() => {
+      console.log('Loading complete');
       setIsLoading(false);
-      setShowPopup(true); // Show popup after loading
-    }, 1000); // Adjust the timeout as needed
+      setShowPopup(true);
+    }, 1000);
 
-    inject(); // Inject Vercel Analytics
+    inject();
 
     return () => {
+      console.log('Cleaning up');
       lenis.destroy();
     };
   }, []);
@@ -44,8 +46,8 @@ function App() {
   return (
     <div className="w-full max-sm:h-[2700px]">
       <Layout />
-       <SpeedInsights />
-      {showPopup && <Popup onClose={() => setShowPopup(false)} />} {/* Render popup if showPopup is true */}
+      <SpeedInsights />
+      {showPopup && <Popup onClose={() => setShowPopup(false)} />}
     </div>
   );
 }
