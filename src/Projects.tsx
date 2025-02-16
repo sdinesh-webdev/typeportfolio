@@ -5,11 +5,7 @@ import proj_2 from './assets/proj_2.webp';
 import proj_3 from './assets/proj_3.webp';
 import proj_4 from './assets/proj_4.webp';
 import proj_5 from './assets/proj_5.webp';
-import Proj1 from './Projects/Proj1';
-import Proj2 from './Projects/Proj2';
-import Proj3 from './Projects/Proj3';
-import Proj4 from './Projects/Proj4';
-import Proj5 from './Projects/Proj5';
+
 import './index.css';
 import useGsapReveal from './useGsapReveal';
 
@@ -20,7 +16,6 @@ interface WorkItem {
   image: string;
   imageStyle: string;
   alt: string;
-  component: React.FC;
 }
 
 const Projects: React.FC = () => {
@@ -29,48 +24,43 @@ const Projects: React.FC = () => {
   const workItems: WorkItem[] = [
     {
       id: 'proj1',
-      link: "/Projects/Proj1",
+      link: "https://example.com/project1", // Replace with actual project URLs
       name: "Coming soon . . .",
       image: proj_1,
       imageStyle: "w-32 h-24", // Changed to Tailwind classes
-      alt: "Project 1",
-      component: Proj1
+      alt: "Project 1"
     },
     {
       id: 'proj2',
-      link: "/Projects/Proj2",
+      link: "https://example.com/project2",
       name: "Coming soon . . .",
       image: proj_2,
       imageStyle: "w-32 h-24", // Changed to Tailwind classes
-      alt: "Project 2",
-      component: Proj2
+      alt: "Project 2"
     },
     {
       id: 'proj3',
-      link: "/Projects/Proj3",
+      link: "https://example.com/project3",
       name: "Coming soon . . .",
       image: proj_3,
       imageStyle: "w-32 h-24", // Changed to Tailwind classes
-      alt: "Project 3",
-      component: Proj3
+      alt: "Project 3"
     },
     {
       id: 'proj4',
-      link: "/Projects/Proj4",
+      link: "https://example.com/project4",
       name: "Coming soon . . .",
       image: proj_4,
       imageStyle: "w-32 h-24", // Changed to Tailwind classes
-      alt: "Project 4",
-      component: Proj4
+      alt: "Project 4"
     },   
     {
       id: 'proj5',
-      link: "/Projects/Proj5",
+      link: "https://example.com/project5",
       name: "Coming soon . . .",
       image: proj_5,
       imageStyle: "w-32 h-24", // Changed to Tailwind classes
-      alt: "Project 5",
-      component: Proj5
+      alt: "Project 5"
     },
   ];
 
