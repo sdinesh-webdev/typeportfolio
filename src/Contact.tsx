@@ -54,7 +54,7 @@ const Contact: React.FC = () => {
             {...item}
             nameClass="font-normal text-2xl"
             containerClass="w-full h-24"
-            imageClass="ml-4"
+            imageClass="ml-1"
             overlayClass="absolute top-0 left-0 w-full h-full bg-black -z-10 transform scale-y-0 origin-top"
           />
           <img 
